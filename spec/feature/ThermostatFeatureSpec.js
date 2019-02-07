@@ -49,5 +49,9 @@ describe("Thermostat", function() {
     expect(thermostat.showMaxTemp()).toEqual(32);
   });
 
+  it("should reset temperature to 20 when reset is clicked", function(){
+    thermostat.resetTemp();
+    expect(thermostat._temp).toEqual(20);
+  });
 
 });
