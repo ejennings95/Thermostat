@@ -9,3 +9,7 @@ Thermostat.prototype.showTemp = function() {
 Thermostat.prototype.increaseTemp = function() {
   this._temp += 1
 };
+
+Thermostat.prototype.decreaseTemp = function() {
+  this._temp -= 1
+};

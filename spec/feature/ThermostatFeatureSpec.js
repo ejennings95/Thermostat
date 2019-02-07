@@ -13,9 +13,14 @@ describe("Thermostat", function() {
   //   expect(thermostat).toHaveMethod("increaseTemp")
   // });
 
-  it("should use the up function to increase the temp by 1", function(){
+  it("should use the increaseTemp function to increase the temp by 1", function(){
     thermostat.increaseTemp();
     expect(thermostat._temp).toEqual(21);
+  });
+
+  it("should use the decreaseTemp function to decrease the temp by 1", function(){
+    thermostat.decreaseTemp();
+    expect(thermostat._temp).toEqual(19);
   });
 
 });
