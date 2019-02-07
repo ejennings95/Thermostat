@@ -8,10 +8,6 @@ describe("Thermostat", function() {
   it("should start at 20 degrees", function() {
     expect(thermostat.showTemp()).toEqual(20);
   });
-  //
-  // it("should have method increaseTemp", function(){
-  //   expect(thermostat).toHaveMethod("increaseTemp")
-  // });
 
   it("should use the increaseTemp function to increase the temp by 1", function(){
     thermostat.increaseTemp();
@@ -27,5 +23,19 @@ describe("Thermostat", function() {
     expect(thermostat.showMinTemp()).toEqual(10);
   });
 
+  it("should start with power saving on", function() {
+    expect(thermostat.showPowerSaving()).toEqual(true);
+  });
+
+  it("should be possible to toggle power saving mode", function() {
+    thermostat.togglePowerSaving()
+    expect(thermostat.showPowerSaving()).toEqual(false);
+  });
+
+  it("should be possible to toggle power saving mode on again", function() {
+    thermostat.togglePowerSaving()
+    thermostat.togglePowerSaving()
+    expect(thermostat.showPowerSaving()).toEqual(true);
+  });
 
 });
