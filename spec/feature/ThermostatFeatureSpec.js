@@ -23,4 +23,9 @@ describe("Thermostat", function() {
     expect(thermostat._temp).toEqual(19);
   });
 
+  it("should have a minimum temperature of 10 degrees", function() {
+    expect(thermostat.showMinTemp()).toEqual(10);
+  });
+
+
 });
