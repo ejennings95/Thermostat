@@ -54,4 +54,22 @@ describe("Thermostat", function() {
     expect(thermostat._temp).toEqual(20);
   });
 
+  it("should return low-usage when the temperature is less than 18", function(){
+    for (var i = 0; i < 3; i++) {
+       thermostat.decreaseTemp();
+     }
+    expect(thermostat.currentEnergyUsage()).toEqual('low-usage');
+  });
+
+  it("should return medium-usage when the temperature is at least 18 and less than 25", function(){
+    expect(thermostat.currentEnergyUsage()).toEqual('medium-usage');
+  });
+
+  it("should return high-usage when the temperature is at least 25", function(){
+    for (var i = 0; i < 6; i++) {
+       thermostat.increaseTemp();
+     }
+    expect(thermostat.currentEnergyUsage()).toEqual('high-usage');
+  });
+
 });
