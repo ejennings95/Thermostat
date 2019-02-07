@@ -1,6 +1,9 @@
+'use strict'
+
 function Thermostat() {
   this._temp = 20;
   this._minTemp = 10;
+  this._maxTemp = 25;
   this._powerSaving = true;
 };
 
@@ -26,5 +29,18 @@ Thermostat.prototype.showPowerSaving = function() {
 
 Thermostat.prototype.togglePowerSaving = function() {
   (this._powerSaving === true) ? this._powerSaving = false : this._powerSaving = true;
+  this.setMaxTemp();
 };
-  
+
+Thermostat.prototype.showMaxTemp = function() {
+  return this._maxTemp;
+};
+
+Thermostat.prototype.setMaxTemp = function() {
+  if (this._powerSaving) {
+    this._maxTemp = 25;
+  }
+  else {
+    this._maxTemp = 32;
+  }
+};

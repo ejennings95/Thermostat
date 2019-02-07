@@ -1,3 +1,5 @@
+'use strict'
+
 describe("Thermostat", function() {
   var thermostat;
 
@@ -28,14 +30,24 @@ describe("Thermostat", function() {
   });
 
   it("should be possible to toggle power saving mode", function() {
-    thermostat.togglePowerSaving()
+    thermostat.togglePowerSaving();
     expect(thermostat.showPowerSaving()).toEqual(false);
   });
 
   it("should be possible to toggle power saving mode on again", function() {
-    thermostat.togglePowerSaving()
-    thermostat.togglePowerSaving()
+    thermostat.togglePowerSaving();
+    thermostat.togglePowerSaving();
     expect(thermostat.showPowerSaving()).toEqual(true);
   });
+
+  it("should set max temperature to 25 degrees if power saving mode is on", function() {
+    expect(thermostat.showMaxTemp()).toEqual(25);
+  });
+
+  it("should set max temperature to 32 degrees if power saving mode is off", function() {
+    thermostat.togglePowerSaving();
+    expect(thermostat.showMaxTemp()).toEqual(32);
+  });
+
 
 });
