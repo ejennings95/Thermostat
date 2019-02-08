@@ -12,11 +12,21 @@ Thermostat.prototype.showTemp = function() {
 };
 
 Thermostat.prototype.increaseTemp = function() {
+  if (this._temp >= this._maxTemp){
+  throw new Error("Already set to maximum temperature");
+}
+  else {
   this._temp += 1
+}
 };
 
 Thermostat.prototype.decreaseTemp = function() {
+  if (this._temp <= this._minTemp){
+  throw new Error("Already set to minimum temperature");
+}
+  else {
   this._temp -= 1
+}
 };
 
 Thermostat.prototype.showMinTemp = function() {
@@ -30,6 +40,9 @@ Thermostat.prototype.showPowerSaving = function() {
 Thermostat.prototype.togglePowerSaving = function() {
   (this._powerSaving === true) ? this._powerSaving = false : this._powerSaving = true;
   this.setMaxTemp();
+  if (this._temp > this._maxTemp){
+    this._temp = this._maxTemp
+  }
 };
 
 Thermostat.prototype.showMaxTemp = function() {

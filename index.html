@@ -1,4 +1,4 @@
-<script src="./src/Thermostat.js"></script>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,16 +14,21 @@
     <button id="increaseTemp">+</button>
     <button id="decreaseTemp">-</button>
     <button id="resetTemp">Reset</button>
-  </p>
   <p>
     Power Saving: <br />
   On   <input type="radio" id="powerSavingOn" name="togglePowerSaving" value="On"
          checked>
   Off  <input type="radio" id="powerSavingOff" name="togglePowerSaving" value="Off">
-  </p>
+  <p>
+  Min temp: <h3 id="minTemp"></h3>
+  Max temp: <h3 id="maxTemp"></h3>
   <p>
 
   </section>
-  </<body>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="src/Thermostat.js" type="text/javascript"></script>
+  <script src="src/script.js"></script>
+  </body>
 
   </html>
