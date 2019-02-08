@@ -36,27 +36,20 @@ $("#powerSavingOff").on("change", function(){
 });
 
 $("#getWeather").click(function() {
-
     event.preventDefault();
      let cityName = $("#cityName").val();
      let countryCode = $("#countryCode").val();
 
      $.ajax({
-
      type: "POST",
-     // the appid is your unique api key given to you by email
      url: "http://api.openweathermap.org/data/2.5/weather?q=" +
      cityName + "," + countryCode + "&APPID=45726f6be1d21e5e968ac85ffcfa5de5&units=metric",
-
      dataType: "json",
      success: function (result) {
-       // result should return {coord: {…}, weather: Array(1), base: "stations", main: {…}, visibility: 10000, …} in console
        let cityWeather = result;
        $("#currentWeather").text("Temperature in " + cityName.charAt(0).toUpperCase()
        + cityName.substr(1) + " is: " + cityWeather.main.temp + " °C");
      }
-
      });
-
    });
 });
