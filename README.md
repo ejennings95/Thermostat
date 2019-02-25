@@ -15,6 +15,6 @@ This program models a thermostat. The specification is:
 
 ## Setup
 
-In this project I decided to use Javascript with the use of J-query to manipulate my HTML. Using the MVC framework I modelled the Model / Controller relationship: 
+In this project I decided to use Javascript with the use of J-query to manipulate my HTML. Using the MVC framework I modelled the Model / Controller relationship:
 
-![Mockup of webpage](./public/images/thermostat-model-controller.pdf)
+![Mockup of webpage](./public/images/thermostat-model-controller.png)
