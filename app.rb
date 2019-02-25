@@ -12,8 +12,13 @@ class Thermostat < Sinatra::Base
 
 
   get "/" do
+    session[:temperature]
     erb(:index)
   end
+
+  # post "/" do
+  #   session[:temperature] = params[:temperature]
+  # end
 
   run! if app_file == $0
 end
