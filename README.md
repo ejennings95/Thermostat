@@ -13,8 +13,42 @@ This program models a thermostat. The specification is:
 - You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
 - (In the challenges where we add an interface, low-usage will be indicated with green, medium-usage indicated with black, high-usage indicated with red.)
 
-## Setup
+## Setup and model
 
 In this project I decided to use Javascript with the use of J-query to manipulate my HTML. Using the MVC framework I modelled the Model / Controller relationship:
 
-![Mockup of webpage](./public/images/thermostat-model-controller.png)
+     ┌──────────┐           ┌─────┐
+     │Controller│           │Model│ Themostat instance variables: MaxTemp, MinTemp, PowerSaving, Temp
+     └────┬─────┘           └──┬──┘
+          │    increaseTemp    │   
+          │ ───────────────────>   
+          │                    │   
+          │ Temp increased by 1│   
+          │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─   
+          │                    │   
+          │    decreaseTemp    │   
+          │ ───────────────────>   
+          │                    │   
+          │ Temp decreased by 1│   
+          │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─   
+          │                    │   
+          │      resetTemp     │   
+          │ ───────────────────>   
+          │                    │   
+          │      Temp = 20     │   
+          │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─   
+          │                    │   
+          │ currentEnergyUsage │   
+          │ ───────────────────>   
+          │                    │   
+          │    Low/Mid/High    │   
+          │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─   
+          │                    │   
+          │  togglePowerSaving │   
+          │ ───────────────────>   
+          │                    │   
+          │       On/Off       │   if power saving on MaxTemp = 20
+          │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─   if power saving off MaxTemp = 35
+     ┌────┴─────┐           ┌──┴──┐
+     │Controller│           │Model│
+     └──────────┘           └─────┘
